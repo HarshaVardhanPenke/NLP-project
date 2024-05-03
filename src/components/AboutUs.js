@@ -29,7 +29,7 @@ const AboutUs=()=>{
             </div>
 
             <div className="m-4 p-7 w-[280px]  rounded-md h-[380px] bg-gray-200 hover:bg-gray-100">
-                <img className="h-52  m-2 rounded-md"src=""></img>
+                <img className="h-52   rounded-md"src="https://cdn.glitch.global/ea596669-dccc-44a7-b029-0f75d46808c3/WhatsApp%20Image%202024-05-02%20at%2022.57.26.jpeg?v=1714708763041 "></img>
                 <h1 className="font-semibold text-2xl">Penta Pallavi</h1>
                 <h2 className="text-lg font-semibold">Team Member</h2>
                 <h3>21PA1A1291</h3>

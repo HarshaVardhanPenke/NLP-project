@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 
-const ContactUs = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    message: ''
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({...formData, [name]: value });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    // Add validation logic here
+    // If validation fails, display error messages
+    // If validation passes, submit the form
   };
 
   const inputStyle = {
@@ -24,38 +27,37 @@ const ContactUs = () => {
     border: '1px solid #ccc',
     fontSize: '16px',
     width: '100%',
-    boxSizing: 'border-box' 
+    boxSizing: 'border-box'
   };
 
   const labelStyle = {
     fontWeight: 'bold',
     marginRight: '10px',
     display: 'block',
-    marginBottom: '5px'
+    marginBottom: '5px',
+    color: '#333'
   };
 
   const buttonStyle = {
     padding: '10px 20px',
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#007bff',
     color: 'white',
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
     fontSize: '16px',
-    marginTop: '20px'
+    marginTop: '30px'
   };
 
   const containerStyle = {
+  
     maxWidth: '600px',
-    margin: ' auto',
-    padding: '20px',
-    backgroundColor: '#f9f9f9',
-    border: '2px',
-    borderColor: '#ccc',
-    position:'relative',
-    top:'100px',
-    borderRadius: '5px',
-    boxShadow: '0 5px 10px rgba(0, 0, 0, 0.5)',
+    margin: 'auto',
+    padding: '40px',
+    backgroundColor: '#fff',
+    border: '2px solid #ccc',
+    borderRadius: '10px',
+    boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
@@ -75,8 +77,8 @@ const ContactUs = () => {
   };
 
   return (
-    <div style={containerStyle}>
-      <h1 style={{ marginBottom: '20px', textAlign: 'center' }}>Contact Us</h1>
+    <div className="my-10 p-20"style={containerStyle}>
+      <h1 className="text-3xl font-semibold"style={{ marginBottom: '20px', textAlign: 'center' }}>Contact Us</h1>
       <form onSubmit={handleSubmit} style={formStyle}>
         <div style={inputContainerStyle}>
           <label style={labelStyle}>Name:</label>
@@ -113,10 +115,20 @@ const ContactUs = () => {
           />
           <small style={{ marginLeft: '10px' }}>Format: 123-456-7890</small>
         </div>
+        <div style={inputContainerStyle}>
+          <label style={labelStyle}>Message:</label>
+          <textarea
+            name='message'
+            value={formData.message}
+            onChange={handleChange}
+            style={{ ...inputStyle, height: '100px' }}
+            required
+          />
+        </div>
         <button type='submit' style={buttonStyle}>Submit</button>
       </form>
     </div>
   );
 };
 
-export default ContactUs;
+export default Contact;
