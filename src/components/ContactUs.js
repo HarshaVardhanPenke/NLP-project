@@ -87,7 +87,7 @@ const Contact = () => {
             name='name'
             value={formData.name}
             onChange={handleChange}
-            style={inputStyle}
+            style={inputStyle}         
             required
           />
         </div>

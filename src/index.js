@@ -6,25 +6,29 @@ import Body from './components/Body';
 import AboutUs from './components/AboutUs';
 import App from './components/App';
 import ContactUs from './components/ContactUs';
+import Signup from './components/Signup';
+import Login from './components/Login';
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 
-const AppLayout = () => {
+const AppLayout = ({ isLoggedIn }) => {
   return (
     <div>
-      <Header />
+      {isLoggedIn && <Header />}
       <Outlet />
     </div>
   );
 };
 
+
 const appRouter=createBrowserRouter([
   {
-    path:"/",
-    element:<AppLayout />,
+    path: "/",
+    element: <AppLayout isLoggedIn={isLoggedIn} />,
+
     children:[
       {
         path:"/",
-        element:<Body/>
+        element:<Login/>
       },
       {
         path:"/aboutus",
@@ -37,6 +41,10 @@ const appRouter=createBrowserRouter([
       {
         path:"/contactus",
         element:<ContactUs/>
+      },
+      {
+        path:"/body",
+        element:<Body/>
       }
     ]
   },
